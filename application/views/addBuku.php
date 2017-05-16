@@ -77,10 +77,8 @@
 										<label for="">Kategori Buku</label>
 										<select name="kategori_buku" class="form-control" required>
 											<option value=""> ----- </option>
-											
-											<?php
-											foreach($kategori_list as $key){?>
-												<option value="<?php echo $key['id']; ?>"><?php echo $key['kategori']; ?></option>";
+											<?php foreach($kategori_list as $key){?>
+												<option value="<?php echo $key['id_kategori']; ?>"><?php echo $key['kategori']; ?></option>";
 											<?php  }?>
 										</select>
 									</div>

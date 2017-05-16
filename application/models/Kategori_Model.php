@@ -16,7 +16,7 @@ class Kategori_Model extends CI_Model {
 			return $query->result();
 		}
 
-		public function addData()
+		public function addDataKategori()
 		{
 			$object = array('kategori' => $this->input->post('kategori'),		
 							);

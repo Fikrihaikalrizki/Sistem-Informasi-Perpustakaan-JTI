@@ -56,7 +56,7 @@
 										<th><center>Penerbit</center></th>
 										<th><center>Kategori</center></th>
 										<th><center>Jumlah</center></th>
-										<!--<th><center>Menu</center></th>-->
+										<th><center>Menu</center></th>
 									</tr>
 								</thead>
 								<tbody>

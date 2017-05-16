@@ -63,11 +63,9 @@
 								<tbody>
 									<?php foreach ($kategori_list as $key){ ?>
 									<tr>
-										<td><?php echo $key['kategori']; ?></td>
+										<td><?php echo $key->kategori ?></td>
 										<td>
-										<!--<a href="<?php echo site_url()?>/hero/index/<?php echo $key['id'] ?>" class="btn btn-success">DataPemain</a>-->
-										<a href="<?php echo site_url()?>/jenis_hero/edit/<?php echo $key['id'] ?>" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span> Edit</a>
-										<a href="<?php echo site_url()?>/Jenis_hero/delete/<?php echo $key['id'] ?>" onclick="return confirm('Anda Yakin Akan Menghapus')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+																				
 										</td>
 									</tr>
 								<?php }?>

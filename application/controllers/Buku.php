@@ -20,36 +20,21 @@ class Buku extends CI_Controller {
 		$this->load->view('buku',$data);	
 	}
 
-	public function addData() 
+	public function addDataBuku() 
 	{
 		$this->load->helper('url','form');
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
 		if($this->form_validation->run()==FALSE){
-			$data['buku_list']=$this->buku_model->getDataBuku();
-			$this->load->view('addBuku',$data);
+			//$data['buku_list']=$this->buku_model->getDataBuku();
+			$this->load->view('addBuku');
 
 		}
 		else{
-
-			$config['upload_path']          = './assets/uploads/';
-            $config['allowed_types']        = 'gif|jpg|png';
-            $config['max_size']             = 1000000000;
-            $config['max_width']            = 10240;
-            $config['max_height']           = 7680;
-
-			$this->load->library('upload', $config);
-
-			if ( ! $this->upload->do_upload('userfile'))
-                {
-                        $error['data'] = "eror";
-						$this->load->view('addHero',$error);
-                }
-                else
-                {
-						$this->Model_Hero->addData();
-						header("location:".site_url("Hero/all"));
-				}
+			$this->load->model('Buku_Model');
+			$this->Buku_Model->addDataBuku();
+			//header("location:".site_url());
+			redirect('buku','refresh');
 		}	
 
 

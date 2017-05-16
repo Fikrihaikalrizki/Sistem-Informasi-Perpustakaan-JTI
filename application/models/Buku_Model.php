@@ -16,7 +16,7 @@ class Buku_Model extends CI_Model {
 			return $query->result();
 		}
 
-			public function addData()
+			public function addDataBuku()
 		{
 			$object = array('nama_buku' => $this->input->post('nama'),
 							'nama_pengarang' => $this->input->post('pengarang'),

@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-class Jenis_Hero extends CI_Controller {
+class Kategori extends CI_Controller {
 
 	/*public function __construct()
 	{
@@ -11,8 +11,8 @@ class Jenis_Hero extends CI_Controller {
 	}*/
 	public function index()
 	{
-		$this->load->model('kategori_model');
-		$data['kategori_list']=$this->Model_Jenis->getDataKategori();
+		$this->load->model('Kategori_Model');
+		$data['kategori_list']=$this->Kategori_Model->getDataKategori();
 		$this->load->view('kategori',$data);	
 	}
 	
@@ -21,20 +21,22 @@ class Jenis_Hero extends CI_Controller {
 	//	$data['data_pegawai']=$this->pegawai_model->getDataPegawai();
 	//	$this->load->view('Pegawai_dataTable',$data);	
 	//}
-	public function addData() 
+	public function addDataKategori() 
 	{
 		$this->load->helper('url','form');
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('kategori', 'kategori', 'trim|required');
+		//$this->kategori_model->addDataKategori();
 		if($this->form_validation->run()==FALSE){
-			$data['kategori_list']=$this->Kategori_Model->getDataKategori();
-			$this->load->view('addKategori',$data);
+			
+			$this->load->view('addKategori');
 		}
 		else
 		{
-			
-			$this->Kategori_Model->addKategori();
-			header("location:".site_url());
+			$this->load->model('Kategori_Model');
+			$this->Kategori_Model->addDataKategori();
+			//header("location:".site_url());
+			redirect('kategori','refresh');
 			
 		}
 	}
@@ -72,5 +74,5 @@ class Jenis_Hero extends CI_Controller {
 
 /* End of file Pegawai.php */
 /* Location: ./application/controllers/Pegawai.php */
-
+	}
  ?>
